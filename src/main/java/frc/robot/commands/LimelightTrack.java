@@ -38,8 +38,9 @@ public class LimelightTrack extends CommandBase {
 			leftPower += 0.3;
 			rightPower += 0.3;
 		}
-		else if (a > 1.5 && a < 2) {
-			//leftPower;
+		else if (a > 3 && a < 18) {
+			leftPower -= 0.3;
+			rightPower -= 0.3;
 		}
  
 		leftPower *= Constants.Drive.slowModifier;

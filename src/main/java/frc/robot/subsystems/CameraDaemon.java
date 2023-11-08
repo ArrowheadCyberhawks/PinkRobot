@@ -10,8 +10,8 @@ public final class CameraDaemon extends SubsystemBase {
 
     
     public static void robotInit() {
-        cam1 = CameraServer.startAutomaticCapture(0);
-        cam2 = CameraServer.startAutomaticCapture(1);
+        //cam1 = CameraServer.startAutomaticCapture(0);
+        //cam2 = CameraServer.startAutomaticCapture(1);
       }
 	public void initDefaultCommand() {
 	}
