@@ -33,7 +33,7 @@ public class Drive extends CommandBase {
 		// leftPower = (xboxY - xboxX);
 		// rightPower = (xboxY + xboxX);
 		leftPower = xboxLY; 
-		rightPower = xboxRY  * 0.915; //slow modifier
+		rightPower = xboxRY; //slow modifier
 
 		//System.out.println(leftPower + "   " + rightPower);
 		System.out.println(Components.motorR3.getSelectedSensorVelocity());
