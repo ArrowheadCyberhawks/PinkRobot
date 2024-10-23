@@ -22,29 +22,24 @@ public class Drive extends CommandBase {
 	}
 
 	public void execute(){
-		
-
+	
 		double leftPower;
 		double rightPower;
-		double xboxLY = Math.abs(IO.xboxDrive.getLeftY()) * IO.xboxDrive.getLeftY();
-		double xboxRY = -Math.abs(IO.xboxDrive.getRightY()) * IO.xboxDrive.getRightY();
 
+		double xboxLX = Math.abs(IO.xboxDrive.getLeftX()) * IO.xboxDrive.getLeftX();
+		double xboxRightTrigger = Math.abs(IO.xboxDrive.getRightTriggerAxis()) * IO.xboxDrive.getRightTriggerAxis();
+		double xboxLeftTrigger = Math.abs(IO.xboxDrive.getLeftTriggerAxis()) * IO.xboxDrive.getLeftTriggerAxis();
+			
+		rightPower = xboxRightTrigger - xboxLeftTrigger - xboxLX;
+		leftPower = xboxRightTrigger - xboxLeftTrigger + xboxLX;
 
-		// leftPower = (xboxY - xboxX);
-		// rightPower = (xboxY + xboxX);
-		leftPower = xboxLY; 
-		rightPower = xboxRY; //slow modifier
-
-		//System.out.println(leftPower + "   " + rightPower);
-		System.out.println(Components.motorR3.getSelectedSensorVelocity());
 		Components.motorR1.set(ControlMode.PercentOutput, Constants.Drive.slowModifier*rightPower);
 		Components.motorR2.set(ControlMode.PercentOutput, Constants.Drive.slowModifier*rightPower);
 		Components.motorR3.set(ControlMode.PercentOutput, Constants.Drive.slowModifier*rightPower);
-		Components.motorL1.set(ControlMode.PercentOutput, -Constants.Drive.slowModifier*leftPower);
-		Components.motorL2.set(ControlMode.PercentOutput, -Constants.Drive.slowModifier*leftPower);
-		Components.motorL3.set(ControlMode.PercentOutput, -Constants.Drive.slowModifier*leftPower);
-		
-		
+		Components.motorL1.set(ControlMode.PercentOutput, Constants.Drive.slowModifier*leftPower);
+		Components.motorL2.set(ControlMode.PercentOutput, Constants.Drive.slowModifier*leftPower);
+		Components.motorL3.set(ControlMode.PercentOutput, Constants.Drive.slowModifier*leftPower);
+
 		}
 	@Override
 	public void initialize() {
