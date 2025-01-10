@@ -5,20 +5,19 @@ import java.net.DatagramSocket;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Components;
 import frc.robot.Constants;
 import frc.robot.IO;
 
 
-public class Drive extends CommandBase {
+public class Drive extends Command {
 	DatagramPacket dataPacket;
 	DatagramSocket dataSocket;
 	
 	boolean reverse = false;
 
 	public Drive() {
-		addRequirements(Components.chassis);
 	}
 
 	public void execute(){

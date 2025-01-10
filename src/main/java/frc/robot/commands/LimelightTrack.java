@@ -1,7 +1,6 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Components;
 import frc.robot.Constants;
 import frc.robot.subsystems.Limelight;
@@ -12,13 +11,12 @@ import java.net.DatagramSocket;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 
-public class LimelightTrack extends CommandBase {
+public class LimelightTrack extends Command {
 	DatagramPacket dataPacket;
 	DatagramSocket dataSocket;
 	
 
 	public LimelightTrack() {
-		addRequirements(Components.chassis);
 	}
 
 	public void execute(){

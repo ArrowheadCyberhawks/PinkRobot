@@ -7,7 +7,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.UsbCamera;
@@ -40,7 +39,6 @@ public class Robot extends TimedRobot {
 	public static DriverStation driverStation;
 	public static TalonSRX _talon;
 	public static Color detectColor;
-	public static AHRS ahrs;
 
 	public static IO io;
 
@@ -53,11 +51,8 @@ public class Robot extends TimedRobot {
 		Components.init();
 		io = new IO();
 		CameraDaemon.robotInit();
-		ahrs = new AHRS(SerialPort.Port.kMXP);
-		ahrs.calibrate();
 		teleCommand = new Drive();
 		autoCommand = new LimelightTrack();
-		Components.chassis.setDefaultCommand(teleCommand);
 	}
 	public void disabledInit() {
 
